@@ -10,7 +10,9 @@
        this.modalFn();  
        this.playFn();  
        this.maskFn();  
+       this.rotateFn();  
        this.parallaxFn();  
+       this.footerFn();  
         
         
      },
@@ -24,6 +26,7 @@
       var that = this;
       var t=0;
       var a=0;
+
                    
       //스크롤이 내려가면 헤더가 사라짐. 위로 올리면 다시 생김 
       //예전값 - 현재값 . 음수 -> 다운 . 양수 -> 업
@@ -52,32 +55,33 @@
           
           }
           else{
-            if( result == 'down'){
+            if( result == 'down'){ //스크롤 내려갈 때. 
               if( that.btn == 1){
               
               $header.removeClass('addHide');
               $header.removeClass('addBlack');
-              $logo.attr('src','./img/logo-yellow-gray.png');
+              $logo.attr('src','./img/logo-yellow-gray.png');             
               }
               else{
                 $header.addClass('addHide');
-              $header.removeClass('addBlack');
+                $header.removeClass('addBlack');
+              
               }                        
             }
             if( result == 'up'){
               if(that.btn == 1){
                 $header.removeClass('addHide');
-                $header.addClass('addBlack');
+                $header.addClass('addBlack');               
               }
               else{
                 $header.removeClass('addHide');
-                $header.addClass('addBlack');              
+                $header.addClass('addBlack');                          
               }
               $logo.attr('src','./img/logo-white.png');
 
             }
           }
-          scrollOld = scrollNew;  ///위치 이유 ? 
+          scrollOld = scrollNew;  
       }
      
       $scrollBtn.on({
@@ -94,9 +98,8 @@
           if(t == 0){
             t=1;
             $scrollWrap.stop().fadeIn(1000);
-            if( $(window).innerWidth() > 1200){
-              $modalSub.stop().fadeIn(800);
-              console.log('modal show');
+             if( $(window).innerWidth() > 1200){
+              $modalSub.stop().fadeIn(800);             
             }
           }
         }
@@ -111,8 +114,9 @@
 
       function resizeFn(){
         if( $(window).innerWidth() > 1200){
-         
-            $modalSub.stop().fadeIn(1000);
+            if( $(window).scrollTop() >=100){
+              $modalSub.stop().fadeIn(1000);
+            }
          
         }
         else{ 
@@ -120,7 +124,7 @@
         }
       }
 
-    // resizeFn();
+     resizeFn();
        $(window).resize(function(){
          resizeFn();
        });
@@ -128,7 +132,7 @@
       
     },
      headerFn:function(){
-       var $header = $('#header');
+       var $icon = $('#header #nav > ul > li > a > span > i');
        var $mainBtn = $('#header .main-btn');
        var $subBtn = $('#header .sub-btn');
        var $subbbBtn = $('#header .subbb-btn');
@@ -152,6 +156,7 @@
         $sub.stop().hide();
         $subb.stop().hide();
         $subbb.stop().hide();
+        $icon.stop().hide();
         $nav.css({display:'inline-block'});
         $logo.attr('src','./img/logo-black.png');
 
@@ -202,9 +207,10 @@
         $sub.stop().hide();
         $subb.stop().show();
         $subbb.stop().show();
+        $icon.stop().show();
 
         $nav.stop().slideUp(0);
-
+        $icon.removeClass('addRotate');
         $bar.removeClass('addCross');
         $logo.attr('src', './img/logo-yellow-gray.png');
         
@@ -233,6 +239,7 @@
           mobileFn();
          }
        }
+       pcMobileFn();
        setTimeout(pcMobileFn,100);
        $(window).resize(function(){
          
@@ -240,25 +247,37 @@
          
        });
 
-       mobileFn();
+      //  mobileFn();
 
-       $mainBtn.on({
-        click:function(e){
-          e.preventDefault();
-          if(mobile == 1){
-            $sub.stop().slideUp(300);
-            $(this).next().stop().slideToggle(300);
+      $mainBtn.each(function(idx){
+        $(this).on({
+          click:function(e){
+            e.preventDefault();
+            if(mobile == 1){
+              if($icon.eq(idx).hasClass('addRotate') == false){ //다른 메뉴를 클릭해서 클래스를 지우고 싶을 경우와 슬라이드업. 
+                $icon.removeClass('addRotate');
+                $sub.stop().slideUp(300);             
+                $icon.eq(idx).toggleClass('addRotate');
+                $(this).next().stop().slideToggle(300);
+               
+              }
+              else {
+                $icon.eq(idx).toggleClass('addRotate');
+                $(this).next().stop().slideToggle(300);               
+              }
+            }         
           }
-         
-        }
-      });
-
+        });  
+     });
+      
        $mobileBtn.on({
         click:function(e){
           e.preventDefault();
           $bar.toggleClass('addCross');
-         $nav.stop().slideToggle(300);
-         that.btn == 0 ? that.btn = 1 : that.btn = 0;
+          $icon.removeClass('addRotate');
+          $sub.stop().slideUp(300); 
+          $nav.stop().slideToggle(300);
+          that.btn == 0 ? that.btn = 1 : that.btn = 0;
         }
       });
 
@@ -293,9 +312,7 @@
         // 줄수 : 이미지 갯수 / 칸의 수 
         //이미지 너비 : 윈도우 넓이 / 칸수 
         //이미지 높이 : 이미지 너비 * 높이 비율 (1)
-        var $navBtn = $('.nav-btn');
-        var $menu = $('#section3 .container .menu');
-        var $section3Top = $('#section3').offset().top+500;
+        var $navBtn = $('.nav-btn');      
         var $galleryUl = $('#section3 .gallery-wrap ul');
         var $galleryLi = $('#section3 .gallery-wrap li');
         var n = $('#section3 .gallery-wrap li').length;
@@ -310,18 +327,7 @@
 
         var hide = [];
         var show = [];
-        
-        //패럴럭스
-        function fadeInFn(){
-          $menu.css({opacity:1},2000);
-        }
-        $(window).scroll(function(){
-          if( $(this).scrollTop() >= $section3Top){
-            fadeInFn();
-          }
-        })
-       
-
+               
         function resizeFn(){
           winW = $(window).innerWidth();
           if(winW >1200){
@@ -551,6 +557,7 @@
         var winW = $(window).width();
         var winH = $(window).height();
         var $maskSlide = $('#maskSlide');
+        var $slideView = $('#maskSlide .slide-view');
 
         var $nextBtn = $('#maskSlide .next-btn');
         var $prevBtn = $('#maskSlide .prev-btn');
@@ -565,6 +572,18 @@
           winW = $(window).width();
           winH = $(window).height();
 
+          if( window.orientation == 0 || window.orientation == 180){
+            winH = winH
+          }
+         else if( window.orientation == 90 || window.orientation == -90){
+            if(winW > 980){
+              winH = winH
+            }
+            else{
+              winH = 600;
+            }
+          }
+
           $maskSlide.css({width:winW,height:winH});
         }
         resizeFn();
@@ -572,6 +591,10 @@
         $(window).resize(function(){
           resizeFn();
         });
+
+         //$(window).addEventListener('orientationchange',function(){
+           //setTimeout(resizeFn,100);
+         //});
 
         //1.메인 슬라이드 
         function nextmainSlideFn(){
@@ -638,6 +661,47 @@
             }
           }
         });
+
+        //.터치 스와이프 
+        var touchStart = 0;
+        var touchEnd = 0;
+        $slideView.on({         
+            mousedown:function(event){
+              event.preventDefault();
+              stopFn();
+              touchStart = event.pageX;             
+           },
+           touchstart:function(event){
+             event.preventDefault();
+              stopFn();
+              touchStart=event.originalEvent.changedTouches[0].clientX;            
+           },
+          mouseup:function(event){
+            event.preventDefault();
+            stopFn();
+            touchEnd = event.pageX;
+            swipeFn();
+          },
+          touchend:function(event){
+            event.preventDefault();
+            stopFn();
+            touchEnd=event.originalEvent.changedTouches[0].clientX;
+            swipeFn();
+          }                    
+        });
+        function swipeFn(){
+          if( touchStart-touchEnd <0 ){
+            if( !$('.col').is(':animated')){
+              nextCountFn();
+            }
+          }
+          else if( touchStart-touchEnd > 0 ){
+            if( !$('.col').is(':animated')){
+              prevCountFn();
+            }
+          }          
+        }
+
         //4.타이머 함수 
         function autoFn(){
           setId = setInterval( nextCountFn,5000);
@@ -715,6 +779,98 @@
           }
         });
       },
+      rotateFn:function(){
+        var $col = $('#rotate .content ul li');
+        var $title = $('#rotate .container .title');
+
+        var $Li = $('#rotate .content-gap .content-wrap').eq(0).innerWidth();
+        var $Lih3 = $('#rotate .img-caption h3');
+        var $backWrap = $('#rotate .back-gap .back-wrap').innerWidth();
+        var $backh3 = $('#rotate .back-wrap h3');
+        var $backp = $('#rotate .back-wrap p');
+        var $backa = $('#rotate .back-wrap span a');
+
+        var h3Fontsize = $Li*0.069448303;
+        var backh3Fontsize = $backWrap*0.113646695;
+        var pFontsize = $backWrap*0.136376034;
+        var aFontsize = $backWrap*0.077279753;
+        var t = 0;
+
+        //페럴럭스
+
+        function fadeInFn(){
+          setTimeout(function(){
+            $title.addClass('addAni');
+            setTimeout(function(){
+              $col.eq(0).addClass('addAni');
+              setTimeout(function(){
+                $col.eq(1).addClass('addAni');
+                setTimeout(function(){
+                  $col.eq(2).addClass('addAni');
+                },300);
+              },300);
+            },300);
+          },300);
+        }
+       
+        $(window).scroll(function(){
+          if( $(this).scrollTop() == 0){
+            t=0;
+            $title.removeClass('addAni');
+            $col.removeClass('addAni');
+          }
+          if( $(this).scrollTop() >= $('#rotate').offset().top-400){
+            if(t==0){
+              t=1;
+              fadeInFn();
+            }
+          }
+        });
+
+        function resizeFn(){
+
+          liEl = document.querySelector('#rotate li');
+          liEl.addEventListener('transitionend', function(){ //트랜지션이 끝나면 너비 값을 가져와서 글자크기 설정
+
+            
+              $Li = $('#rotate li').innerWidth();
+              $backWrap = $('#rotate .back-gap .back-wrap').eq(0).innerWidth();
+                  
+              h3Fontsize = $Li*0.064102564;
+              backh3Fontsize = $backWrap*0.113646695;
+              pFontsize = $backWrap*0.068188017;
+              aFontsize = $backWrap*0.077279753;
+
+              // liEl.addEventListener('transitionstart', function(){
+              //   console.log('트랜지션 시작');
+              // });
+              // liEl.addEventListener('transitionrun', function(){
+              //   console.log('트랜지션 실행중');
+              // });
+              // liEl.addEventListener('transitionend', function(){
+              //   console.log('트랜지션 끝');
+              // });
+
+              $Lih3.css({fontSize:h3Fontsize});
+              $backh3.css({fontSize:backh3Fontsize});
+              $backp.css({fontSize:pFontsize});
+              $backa.css({fontSize:aFontsize});
+          });
+          
+         
+
+        }
+
+        $(window).resize(function(){
+          setTimeout(resizeFn,100);
+         });
+
+        resizeFn();
+        setTimeout(resizeFn,100);
+
+          
+
+      },
       parallaxFn:function(){
         //1.section2
         var $iconLi = $('#section2 .icon-box >ul>li');
@@ -744,7 +900,7 @@
         var $sec7Li = $('#section7 .content > ul > li');
         var t7 = 0;
         //6.section8
-        var $section8 = $('#section8').offset().top+200;
+        var $section8 = $('#section8').offset().top-200;
         var $sec8Li = $('#section8 .container ul li');
         var t8 = 0;
     
@@ -828,8 +984,7 @@
                 setTimeout(function(){
                   $rightFirst.addClass('addAni');
                   setTimeout(function(){
-                    $sec5Li.eq(2).addClass('addAni');  
-                    console.log('dfef'+$sec5Li.eq(1));
+                    $sec5Li.eq(2).addClass('addAni');                    
                     setTimeout(function(){
                       $sec5Li.eq(0).addClass('addAni');                     
                       $sec5Li.eq(1).addClass('addAni');                                             
@@ -892,8 +1047,7 @@
           if( $(this).scrollTop() >= $section6Top ){
             if(t6 == 0){
               t6=1;
-              sec6FadeinFn();
-              console.log('sec6'+$section6Top);
+              sec6FadeinFn();              
             }
           }
         });
@@ -921,8 +1075,7 @@
         }
         if( $(this).scrollTop() >= $section7Top+500 ){
           if(t7 == 0){
-            sec7FadeinFn();
-            console.log($section7Top);
+            sec7FadeinFn();           
           }
         }
        });
@@ -951,8 +1104,58 @@
            }
          }
        });
+      },
+      footerFn:function(){
+        var $inputBox = $('#footer .input-box');
+        var $submitBtn = $('#submitBtn');
+        var $msgWrap = $('#footer .msg-wrap');
+        var $email = $('#email');
+        var $response = $('#footer .response-box h3');
 
+        $submitBtn.on({
+          click:function(event){
+            event.preventDefault();
 
+            var emailVal = $('#email').val();
+            if( emailVal == '' ){
+            alert('메일 주소를 입력하세요!');
+            $inputBox.addClass('addAjax');
+            $email.focus();
+            console.log($msgWrap);
+            return false;
+          }
+          else{
+            $inputBox.removeClass('addAjax');
+
+            $.ajax({
+              url: './reponse.php',
+              type: 'POST',
+              data: { email : emailVal 
+              },
+              success:function(result){
+                $inputBox.addClass('addAjax');
+                $response.html(result);
+                console.log('aaa');
+
+                $msgWrap.fadeIn(1000);
+                setTimeout(msgFn,6000);
+
+                function msgFn(){
+                  $email.val('');
+                  $response.html('');
+                  $inputBox.removeClass('addAjax');
+                  $msgWrap.fadeOut(1000);
+                  $email.focus();
+                  console.log('mmm');
+                }
+              },
+              error:function(){
+                alert('전송 실패');
+              }
+            });
+          }
+         }
+        });
       }
 
    }

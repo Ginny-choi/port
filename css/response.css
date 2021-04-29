@@ -10,6 +10,7 @@
     #wrap #main #section4 {padding:10.83333333vw 0;}
     #wrap #main #section5 {padding-top:13.3333333333333vw;}
     #wrap #footer {padding:7.08333333333333vw 0;}
+    #wrap #main #rotate {padding:10vw 0;}
   
     
 
@@ -44,10 +45,11 @@
     #wrap #header .wrap .gap .container #logo{padding:17px 0;}
     /*nav*/
     #wrap #header .wrap .gap .container #nav {display:none;position:fixed;top:70px;left:0;width:100%;height: 100%;text-align: left;overflow-y: auto;} /* 높이를 지정해야 스크롤이 나옴 */
-    #wrap #header .wrap .gap .container #nav > ul {width:auto;padding-bottom:50px;background:#fff;}
+    #wrap #header .wrap .gap .container #nav > ul {width:auto;padding-bottom:60px;background:#fff;}
     #wrap #header .wrap .gap .container #nav > ul > li  {display:block;margin:0;text-indent: 25px;}
     #wrap #header .wrap .gap .container #nav > ul > li > a  {display:block;line-height: 50px;}
-    #wrap #header .wrap .gap .container #nav > ul > li > a i.mobilicon {display:block;line-height: 50px;padding-right:15px;} 
+    #wrap #header .wrap .gap .container #nav > ul > li > a span {display:block;} 
+ 
     #wrap #header .wrap .gap .container #nav > ul > li > a:focus  {color:rgba(0,0,0,.5);}
     #wrap #header .wrap .gap .container #nav > ul > li > a:hover  {color:rgba(0,0,0,.5);}
 
@@ -68,7 +70,7 @@
 
 
     /*sub menu*/
-    #wrap #header .wrap .gap .container #nav > ul > li .sub {display:none;position:relative;top:0;left:0;width:100%;margin-left:0;border-radius: 0px;text-indent: 40px;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub {display:none;position:relative;top:0;left:0;width:100%;margin-left:0;border-radius: 0px;text-indent: 40px;padding-bottom:20px;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap {padding:0;}
 
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap  > ul > li {float:none;width:100%;}
@@ -111,7 +113,7 @@
 
     #wrap #main #section2 .wrap .gap .container .icon-box ul {width:80%;margin:0 auto;}
     #wrap #main #section2 .wrap .gap .container .icon-box ul li {width:33.3333%;margin-bottom:30px;}
-    #wrap #main #section2 .wrap .gap .container .icon-box ul li:nth-child(4) {width:50%;}
+    #wrap #main #section2 .wrap .gap .container .icon-box ul li:nth-child(4) {width:50%}
     #wrap #main #section2 .wrap .gap .container .icon-box ul li:nth-child(5) {width:50%;}
 
     #wrap #main #section2 .wrap .gap .container .content ul {width:100%;text-align: center;}
@@ -176,6 +178,7 @@
     #wrap #main #maskSlide .wrap .gap .container .slide-container .slide-view .slide-wrap .slide1 .col-wrap .col {display:none;}
     #wrap #main #maskSlide .wrap .gap .container .slide-container .slide-view .slide-wrap .slide2 .col-wrap .col {display:none;}
 
+    #wrap #main #rotate .wrap .gap .container .content ul li  {float:left;width:50%;margin-bottom:25px;}
 
 }
 
@@ -232,6 +235,10 @@
     #wrap #footer .wrap .gap .container ul li:nth-child(1) .content-gap .content-wrap {text-align: center;}
     #wrap #footer .wrap .gap .container ul li:nth-child(3) .content-gap .content-wrap {text-align: center;}
     #wrap #footer .wrap .gap .container ul li:nth-child(1) .content-gap .content-wrap h1 a img {margin:0 auto;}
+
+    
+    #wrap #main #rotate .wrap .gap .container .content ul li  {float:none;width:100%;}
+    
 }
 
 @media all and (max-width:570px){
@@ -251,7 +258,7 @@
     #wrap #main #section5 .wrap .gap .container .bottom ul li {padding-bottom:30px;} 
     #wrap #main #section5 .wrap .gap .container .bottom ul li:nth-child(1) {float:none;width:100%;} 
     #wrap #main #section5 .wrap .gap .container .bottom ul li:nth-child(2) {float:none;width:100%;} 
-    #wrap #main #section5 .wrap .gap .container .bottom ul li:nth-child(3) {max-width:480px;} 
+    #wrap #main #section5 .wrap .gap .container .bottom ul li:nth-child(3) {max-width:480px;padding-bottom:0;} 
     #wrap #main #section5 .wrap .gap .container .bottom ul li:nth-child(1) .bottom-gap .bottom-wrap  {width:395px;}
     #wrap #main #section5 .wrap .gap .container .bottom ul li:nth-child(2) .bottom-gap .bottom-wrap  {width:395px;}
 
@@ -281,6 +288,8 @@
     #wrap #main #section2 .wrap .gap .container .content ul li.center .content-gap {padding:0 15px;}
     #wrap #main #section2 .wrap .gap .container .content ul li.center .content-gap .content-wrap h4 {font-size:30px;}
     #wrap #main #section2 .wrap .gap .container .content ul li.right .content-gap {padding:0 15px;}
+
+    #wrap #main #rotate .wrap .gap .container .title h2 {font-size:4.385964912vw;}
 }
 
 @media all and (max-width:500px){
@@ -292,7 +301,7 @@
 @media all and (max-width:420px){
     #wrap #main #section1 .wrap .gap .container .content h2 {font-size:50px;}
     #wrap #main #section4 .wrap .gap .container .top .top-gap .top-content ul .right .right-gap .right-content ul li .content-gap .content-wrap .icon-box {max-width:70px;}
-    #wrap #main #section4 .wrap .gap .container .top .top-gap .top-content ul .right .right-gap .right-content ul li .txt-box {width:75.9493670886076;}
+    #wrap #main #section4 .wrap .gap .container .top .top-gap .top-content ul .right .right-gap .right-content ul li .txt-box {width:75.9493670886076%;}
     #wrap #main #section4 .wrap .gap .container .bottom h3 {font-size:16px;}
     #wrap #main #section5 .wrap .gap {padding:0;}
     #wrap #main #section5 .wrap .gap .container .top .left .left-gap .left-content p {font-size:13px;line-height: 170%;}
