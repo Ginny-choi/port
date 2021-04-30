@@ -23,10 +23,9 @@
 #wrap #header .wrap .gap .container #nav {display:inline-block;}
 #wrap #header .wrap .gap .container #nav > ul {width:100%}
 #wrap #header .wrap .gap .container #nav > ul > li  {display:inline-block;margin:0 18px;position:relative;}
-#wrap #header .wrap .gap .container #nav > ul > li > a  {display:block;line-height: 80px;font-size:14px;font-weight: 500;color:#232323;transition:all .6s;}
-#wrap #header .wrap .gap .container #nav > ul > li > a::after  {content:'';display:block;clear:both;}
-#wrap #header .wrap .gap .container #nav > ul > li > a span {display:none;float:right;padding-right:15px;} 
-#wrap #header .wrap .gap .container #nav > ul > li > a span i.mobilicon {font-size:14px;line-height: 50px;transform:rotateX(0deg);} 
+#wrap #header .wrap .gap .container #nav > ul > li > a  {display:block;line-height: 80px;font-size:14px;font-weight: 500;color:#232323;transition:all .6s;position:relative;}
+#wrap #header .wrap .gap .container #nav > ul > li > a span {display:none;position:absolute;top:0;right:0;height:50px;padding-right:15px;} 
+#wrap #header .wrap .gap .container #nav > ul > li > a span i.mobilicon {display:block;height:100%;font-size:14px;line-height: 50px;transform:rotateX(0deg);} 
 #wrap #header .wrap .gap .container #nav > ul > li > a i.mobilicon.addRotate {transform:rotateX(180deg);} 
 #wrap #header .wrap .gap .container #nav > ul > li > a:hover  {color:rgba(0,0,0,.5);}
 
@@ -184,13 +183,11 @@
 #wrap #main #rotate .wrap .gap {width:100%;}
 #wrap #main #rotate .wrap .gap .container {width:100%;}
 #wrap #main #rotate .wrap .gap .container .title {text-align: left;padding:0 15px 4.2735043% 15px;opacity:0;transition:all 1s;}
-#wrap #main #rotate .wrap .gap .container .title.addAni {opacity:1;}
 #wrap #main #rotate .wrap .gap .container .title h2 {font-size:35px;font-weight: 700;text-decoration:overline;color:#383e56;}
 
 #wrap #main #rotate .wrap .gap .container .content {width:100%;}
 #wrap #main #rotate .wrap .gap .container .content ul {width:100%;}
-#wrap #main #rotate .wrap .gap .container .content ul li  {float:left;width:33.3333%;opacity:0;transition:all .6s;}
-#wrap #main #rotate .wrap .gap .container .content ul li.addAni  {opacity:1;}
+#wrap #main #rotate .wrap .gap .container .content ul li  {float:left;width:33.3333%;opacity:0;}
 #wrap #main #rotate .wrap .gap .container .content ul li .content-gap {padding:0 15px;}
 #wrap #main #rotate .wrap .gap .container .content ul li .content-gap .content-wrap{width:100%;position:relative;}
 #wrap #main #rotate .wrap .gap .container .content ul li .content-gap .content-wrap .front-face{width:100%;position:relative;z-index:2;transform:perspective(600px) rotateY(0deg);transition:all 1.5s;}

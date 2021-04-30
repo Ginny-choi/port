@@ -247,7 +247,7 @@
          
        });
 
-      //  mobileFn();
+       mobileFn();
 
       $mainBtn.each(function(idx){
         $(this).on({
@@ -269,6 +269,7 @@
           }
         });  
      });
+
       
        $mobileBtn.on({
         click:function(e){
@@ -324,7 +325,7 @@
         var imgW = winW/cols;        
         var imgH2 = imgW *2;
         var btnNum = 0
-
+        
         var hide = [];
         var show = [];
                
@@ -796,21 +797,16 @@
         var aFontsize = $backWrap*0.077279753;
         var t = 0;
 
-        //페럴럭스
-
+        //페럴럭스 //addClass로 설정하니 트랜지션이랑 반응형이랑 맞물려서 에니메이트로 수정.       
         function fadeInFn(){
-          setTimeout(function(){
-            $title.addClass('addAni');
-            setTimeout(function(){
-              $col.eq(0).addClass('addAni');
-              setTimeout(function(){
-                $col.eq(1).addClass('addAni');
-                setTimeout(function(){
-                  $col.eq(2).addClass('addAni');
-                },300);
-              },300);
-            },300);
-          },300);
+          $title.stop().animate({opacity:1},300,function(){
+            $col.eq(0).stop().animate({opacity:1},300,function(){
+              $col.eq(1).stop().animate({opacity:1},300,function(){
+                $col.eq(2).stop().animate({opacity:1},300,function(){
+                });
+              });
+            });
+          });
         }
        
         $(window).scroll(function(){
@@ -829,9 +825,8 @@
 
         function resizeFn(){
 
-          liEl = document.querySelector('#rotate li');
-          liEl.addEventListener('transitionend', function(){ //트랜지션이 끝나면 너비 값을 가져와서 글자크기 설정
-
+         // liEl = document.querySelector('#rotate li');
+          //liEl.addEventListener('transitionend', function(){ //트랜지션이 끝나면 너비 값을 가져와서 글자크기 설정 //미흡하여 사용 보류 
             
               $Li = $('#rotate li').innerWidth();
               $backWrap = $('#rotate .back-gap .back-wrap').eq(0).innerWidth();
@@ -855,7 +850,7 @@
               $backh3.css({fontSize:backh3Fontsize});
               $backp.css({fontSize:pFontsize});
               $backa.css({fontSize:aFontsize});
-          });
+         // });
           
          
 

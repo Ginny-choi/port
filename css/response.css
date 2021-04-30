@@ -47,7 +47,7 @@
     #wrap #header .wrap .gap .container #nav {display:none;position:fixed;top:70px;left:0;width:100%;height: 100%;text-align: left;overflow-y: auto;} /* 높이를 지정해야 스크롤이 나옴 */
     #wrap #header .wrap .gap .container #nav > ul {width:auto;padding-bottom:60px;background:#fff;}
     #wrap #header .wrap .gap .container #nav > ul > li  {display:block;margin:0;text-indent: 25px;}
-    #wrap #header .wrap .gap .container #nav > ul > li > a  {display:block;line-height: 50px;}
+    #wrap #header .wrap .gap .container #nav > ul > li > a  {display:block;line-height: 50px;height:50px;}
     #wrap #header .wrap .gap .container #nav > ul > li > a span {display:block;} 
  
     #wrap #header .wrap .gap .container #nav > ul > li > a:focus  {color:rgba(0,0,0,.5);}
