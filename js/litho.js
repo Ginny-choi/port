@@ -132,6 +132,7 @@
       
     },
      headerFn:function(){
+       var $span = $('#header #nav > ul > li > a > span');
        var $icon = $('#header #nav > ul > li > a > span > i');
        var $mainBtn = $('#header .main-btn');
        var $subBtn = $('#header .sub-btn');
@@ -256,12 +257,15 @@
             if(mobile == 1){
               if($icon.eq(idx).hasClass('addRotate') == false){ //다른 메뉴를 클릭해서 클래스를 지우고 싶을 경우와 슬라이드업. 
                 $icon.removeClass('addRotate');
+                $span.removeClass('addRotate');
                 $sub.stop().slideUp(300);             
+                $span.eq(idx).toggleClass('addRotate');
                 $icon.eq(idx).toggleClass('addRotate');
                 $(this).next().stop().slideToggle(300);
                
               }
               else {
+                $span.eq(idx).toggleClass('addRotate');
                 $icon.eq(idx).toggleClass('addRotate');
                 $(this).next().stop().slideToggle(300);               
               }
@@ -285,13 +289,27 @@
      },
      section1Fn:function(){
       var $section1 = $('#section1');
+      var $h2 = $('#section1 .content h2');
       var $content = $('#section1 .content');
       var $contentH = $('#section1 .content').innerHeight();
       var conMargin = $contentH/2;
+      var x = 0;
+      var y = 0;
 
       var winW = $(window).innerWidth();
       var winH = $(window).innerHeight();
 
+      $h2.on({
+        mousemove:function(event){
+          x=event.clientX*0.03;
+          y=event.clientY*0.03;
+        
+          $h2.css({right:x+'px',top:y+'px'});
+        },
+        mouseleave:function(event){
+          $h2.css({right:0,top:0});
+        }
+      });
       function resizeFn(){
          winW = $(window).innerWidth();
          winH = $(window).innerHeight();    
