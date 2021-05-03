@@ -380,7 +380,7 @@ s
 
 /*cube box*/
 #wrap #main #section5 .wrap .gap .container .bottom ul li:nth-child(3) .bottom-gap .bottom-wrap .cube-box-wrap {width:100%;}
-#wrap #main #section5 .wrap .gap .container .bottom ul li:nth-child(3) .bottom-gap .bottom-wrap .cube-box-wrap .cube-box {margin:0 auto;position:relative;width:50px;height: 50px;line-height: 50px;font-size:30px;font-weight: 600;transform-style:preserve-3d;transform:perspective(100px) rotate3d(0,0,0 0deg);animation:ani 2s linear infinite;}
+#wrap #main #section5 .wrap .gap .container .bottom ul li:nth-child(3) .bottom-gap .bottom-wrap .cube-box-wrap .cube-box {margin:0 auto;position:relative;width:50px;height: 50px;line-height: 50px;font-size:30px;font-weight: 600;transform-style:preserve-3d;transform:perspective(100px)rotate3d(0,0,0 0deg);animation:ani 2s linear infinite;}
 @keyframes ani{
     0%{transform:rotate3d(0,0,0, 0deg);}
     25%{transform:rotate3d(.2,.5,0, 90deg);}
@@ -580,7 +580,7 @@ s
 #modalSub.addModal {right:0}
 #modalSub .wrap {width: 100%;height: 100%;overflow-y: scroll;}
 #modalSub .wrap::-webkit-scrollbar {width:2px;}
-#modalSub .wrap::-webkit-scrollbar-track {background:#444;}
+#modalSub .wrap::-webkit-scrollbar-track {background:#999;}
 #modalSub .wrap::-webkit-scrollbar-button {background:#fff;height: 40px;}
 #modalSub .wrap::-webkit-scrollbar-thumb {background:#ddd;}
 #modalSub .wrap .gap {padding:40px 15px;}
