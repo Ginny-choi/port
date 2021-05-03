@@ -964,7 +964,7 @@
                   $rightLi.eq(2).addClass('addShow');
                   setTimeout(function(){
                     $bottom.stop().animate({opacity:1},1500);   
-                  },300);
+                  },400);
                 },300);
               },300);
             },300);
@@ -1057,7 +1057,7 @@
             t6=0;
             $sec6li.addClass('addAni');
           }
-          if( $(this).scrollTop() >= $section6Top ){
+          if( $(this).scrollTop() >= $section6Top+300 ){
             if(t6 == 0){
               t6=1;
               sec6FadeinFn();              
@@ -1086,7 +1086,7 @@
           $sec7title.removeClass('addAni');
           $sec7Li.removeClass('addAni');
         }
-        if( $(this).scrollTop() >= $section7Top+500 ){
+        if( $(this).scrollTop() >= $section7Top+400){
           if(t7 == 0){
             sec7FadeinFn();           
           }
@@ -1110,7 +1110,7 @@
            t8 = 0;
            $sec8Li.removeClass('addAni');   
          }
-         if( $(this).scrollTop() >=  $section8 ){
+         if( $(this).scrollTop() >=  $section8+200 ){
            if(t8 == 0){
              t8 =1;
             sec8FadeinFn();

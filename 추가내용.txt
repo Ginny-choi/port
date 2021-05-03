@@ -1,0 +1,39 @@
+섹션 5 남자 사진 위에 3d cube 박스 넣어서
+? 넣고 애니메이션으로 회전하는 박스 만들기 : ? 큐브박스 
+
+섹션 하나 만들어서 마스크 슬라이드 만들기. 
+
+180도 회전 카드 하나 만들기. 
+
+
+
+<h1><a href="index.html"></a></h1>
+<h1><a href="./index.html"></a></h1>
+<h1><a href="http://oiokoo,dothome.co.kr/litho"></a></h1>
+
+
+<form name="formMailSend" id="formMailSend" method="get/post" action="respons.php">
+
+form = 서버와 클라이언트가 정보를 주고 받는 유일한 태그. 
+get = 정보 노출이 된다. 주소창에서
+post = 정보 노출 안댐. 중요한 내용은 이걸로
+
+action = 서버사이드 언어 프로그램 . 정보를 서버로 보낼 때 받아주는 파일.
+         폼 내용을 받아주는 서버 파일..db와 연동을 해야함
+         **클라이언트가 서버에 정보 요청(리퀘스트)을 하는고 서버가 그에 대한 응답(리스판스)을 해줌. 
+         request(요청) > response(응답)
+
+          <input type="hidden" name="" id="" value="code$"> <!-- 눈에 보이지 않는 코드 번호를 보낼 때 필요 -->
+          쿠키 정보를 보낼 수 있다. 클라이언트 정보를 value 값에 보내서 보낸다. 보안 역할 가능한..
+
+          데이터베이스 / 테이블 
+
+
+          127.0.01/litho/ 
+           localhost/litho/
+           아이피주소/litho
+
+
+        아이피주소/litho
+
+        192.168.0.114/litho_
