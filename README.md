@@ -1,6 +1,8 @@
 ## Litho webagency site
 📌 웹에이젼시 사이트 클론 코딩 
+
 📌 반응형 웹사이트 
+
 📌 사이트 주소 : https://ginny-choi.github.io/portpolio2
 
 ## 프로젝트의 목적
