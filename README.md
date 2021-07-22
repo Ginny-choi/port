@@ -3,7 +3,7 @@
 
 📌 반응형 웹사이트 
 
-📌 사이트 주소 : https://ginny-choi.github.io/portpolio2
+📌 사이트 주소 : http://oiokoo.dothome.co.kr/port2/
 
 ## 프로젝트의 목적
 * 마크업 숙련도를 높이기 위함
@@ -84,6 +84,12 @@
 
 ![이메일폼](https://user-images.githubusercontent.com/77954029/126472747-02f52992-3c74-4f18-bd49-8c514c9a1fc1.png)
 
--  post 방법으로 php 파일을 활용하여 이메일 폼의 내용을 전달함
+
+![스크린샷 2021-07-22 오후 3 22 58](https://user-images.githubusercontent.com/77954029/126598671-e20de08b-8304-4b3e-9a8a-bd3d6fb574ad.png)
+
+
+- post 방법으로 php 파일을 활용하여 이메일 폼의 내용을 전달함
 - 이메일 칸이 공백인 상태에서 전송 버튼을 누를시 경고창이 나타남 
+- 메일 전송 성공시 하단에 내용을 알려줌 
+
 
